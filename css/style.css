@@ -1,0 +1,1364 @@
+/* =============================================================================
+   BROWNIE PARADISE - FOLHA DE ESTILOS PRINCIPAL
+   ========================================================================== */
+/*
+   ARQUIVO: style.css
+   DESCRIÇÃO: Estilos customizados para o site Brownie Paradise
+   VERSÃO: 2.0 (Refatorada e otimizada)
+   DATA: 05/10/2025
+*/
+
+/* =============================================================================
+   SUMÁRIO
+   ========================================================================== */
+/*
+   1. Variáveis CSS e Configurações Globais
+   2. Reset e Estilos Base
+   3. Tipografia
+   4. Classes Utilitárias
+   5. Componentes de Layout (Header, Main, Footer)
+   6. Navegação (Navbar)
+   7. Carrossel
+   8. Botões e Formulários
+   9. Itens do Menu (Cards com Hover)
+   10. Timeline (Linha do Tempo)
+   11. Seções de Conteúdo
+   12. Blog e Comentários
+   13. Sidebar e Widgets
+   14. Redes Sociais
+   15. Responsividade
+*/
+
+/* =============================================================================
+   1. VARIÁVEIS CSS E CONFIGURAÇÕES GLOBAIS
+   ========================================================================== */
+:root {
+    /* Cores Principais */
+    --cor-primaria: #463720;
+    --cor-primaria-escura: #665335;
+    --cor-secundaria: #443C44;
+    --cor-texto: #333;
+    --cor-texto-claro: #777;
+    --cor-branco: #fff;
+    --cor-fundo: #f5f5f5;
+    --cor-borda: #ccc;
+   
+    /* Timeline */
+    --cor-timeline: rgba(151, 36, 47, 0.9);
+   
+    /* Espaçamentos */
+    --espacamento-padrao: 70px;
+    --espacamento-pequeno: 20px;
+    --espacamento-medio: 40px;
+   
+    /* Tipografia */
+    --fonte-principal: 'Asap', Arial, sans-serif;
+    --tamanho-fonte-base: 18px;
+    --peso-negrito: 600;
+    --peso-normal: 400;
+   
+    /* Transições */
+    --transicao-padrao: all 0.3s ease-in-out;
+}
+
+/* =============================================================================
+   2. RESET E ESTILOS BASE
+   ========================================================================== */
+
+/* Importação de Fontes */
+@import url(https://fonts.googleapis.com/css?family=Asap:400,700);
+@import url(https://fonts.googleapis.com/css?family=Pompiere);
+
+/* Reset Básico */
+html, body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto);
+    background: url("../img/bg.png") repeat fixed;
+    font-size: var(--tamanho-fonte-base);
+    line-height: 1.6em;
+    font-weight: var(--peso-normal);
+    letter-spacing: 1px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Box Sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Seleção de Texto */
+::-moz-selection {
+    background: var(--cor-primaria);
+    color: var(--cor-branco);
+    text-shadow: none;
+}
+::selection {
+    background: var(--cor-primaria);
+    color: var(--cor-branco);
+    text-shadow: none;
+}
+
+/* =============================================================================
+   3. TIPOGRAFIA
+   ========================================================================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: var(--peso-negrito);
+    color: #111;
+    margin-top: 0;
+}
+
+h1 { font-size: 36px; }
+h2 { font-size: 34px; }
+h3 { font-size: 30px; }
+h4 { font-size: 28px; }
+h5 { font-size: 24px; }
+h6 { font-size: 20px; }
+
+p {
+    color: #1f1e1c;
+    margin: 0 0 15px;
+}
+
+a {
+    color: #17B3E8;
+    text-decoration: none;
+    transition: var(--transicao-padrao);
+}
+
+a:hover,
+a:focus {
+    color: #666;
+    text-decoration: none;
+    outline: none;
+}
+
+/* =============================================================================
+   4. CLASSES UTILITÁRIAS
+   ========================================================================== */
+
+/* Imagens Responsivas */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.responsiva {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Vídeos Responsivos */
+.video embed,
+.video object,
+.video iframe {
+    width: 100%;
+    height: auto;
+}
+
+/* Alinhamentos */
+.f-right { float: right; }
+.f-left { float: left; }
+.t-center { text-align: center; }
+.t-right { text-align: right; }
+.t-left { text-align: left; }
+
+/* Clearfix */
+.clearfix::after,
+.clearfix::before {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Efeito HR com Linhas Laterais */
+.hr {
+    display: inline-block;
+    position: relative;
+}
+
+.hr::before,
+.hr::after {
+    background: var(--cor-primaria);
+    content: "";
+    height: 1px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 121px;
+}
+
+.hr::after { right: -139px; }
+.hr::before { left: -139px; }
+
+/* =============================================================================
+   5. COMPONENTES DE LAYOUT (HEADER, MAIN, FOOTER)
+   ========================================================================== */
+
+/* ===== INÍCIO: HEADER ===== */
+header {
+    margin-top: 130px;
+}
+
+header .container {
+    padding: 0;
+}
+/* ===== FIM: HEADER ===== */
+
+/* ===== INÍCIO: MAIN CONTENT ===== */
+#page-content {
+    min-height: 400px;
+}
+
+#main-content {
+    background: var(--cor-branco);
+    margin-top: 30px;
+}
+
+article {
+    padding: var(--espacamento-padrao) 0;
+}
+/* ===== FIM: MAIN CONTENT ===== */
+
+/* ===== INÍCIO: FOOTER ===== */
+footer {
+    color: #ccc;
+    font-size: 14px;
+    position: relative;
+}
+
+/* Borda decorativa superior */
+footer::before {
+    background: url("img\brdr2.png") repeat-x;
+    content: "";
+    height: 8px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: -8px;
+    width: 100%;
+}
+
+footer .wrap-footer {
+    padding: 50px 0 25px;
+    background-color: var(--cor-secundaria);
+}
+
+footer .bottom-footer {
+    background-color: #29282E;
+    text-align: center;
+    padding: 15px 0 10px;
+}
+
+footer .bottom-footer p {
+    color: #b1b1b1;
+    margin: 0;
+}
+
+footer a {
+    color: #999;
+    transition: var(--transicao-padrao);
+}
+
+footer a:hover {
+    color: var(--cor-branco);
+    text-decoration: underline;
+}
+/* ===== FIM: FOOTER ===== */
+
+/* =============================================================================
+   6. NAVEGAÇÃO (NAVBAR)
+   ========================================================================== */
+
+/* ===== INÍCIO: NAVBAR ===== */
+.navbar-default {
+    border-color: transparent;
+    background-color: var(--cor-primaria);
+    margin-bottom: 0;
+}
+
+.navbar-default .navbar-brand img {
+    max-height: 50px;
+    width: auto;
+}
+
+.navbar-default .nav li a {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #111010;
+    font-size: 20px;
+    margin-top: 5px;
+    transition: var(--transicao-padrao);
+}
+
+.navbar-default .nav li a:hover,
+.navbar-default .nav li a:focus {
+    outline: none;
+    color: var(--cor-branco);
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: var(--cor-branco);
+    background: none;
+}
+
+.navbar-default .navbar-toggle {
+    border: none;
+    background-color: var(--cor-branco);
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: #f0f0f0;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: var(--cor-primaria);
+}
+/* ===== FIM: NAVBAR ===== */
+
+/* ===== INÍCIO: NAVBAR DESKTOP ===== */
+@media (min-width: 768px) {
+    .navbar-default {
+        padding: 20px 0;
+        border: none;
+        background: var(--cor-primaria);
+        transition: padding 0.3s ease;
+    }
+   
+    /* Borda decorativa inferior */
+    .navbar-default::after {
+        background: url("img/brdr1.png") repeat-x;
+        bottom: -8px;
+        content: "";
+        height: 8px;
+        left: 0;
+        position: absolute;
+        width: 100%;
+    }
+   
+    /* Navbar Encolhida (ao rolar) */
+    .navbar-default.navbar-shrink {
+        padding: 0;
+        background: var(--cor-primaria);
+        border-bottom: 1px solid #eee;
+    }
+   
+    .navbar-default.navbar-shrink .nav li a {
+        color: var(--cor-branco);
+    }
+   
+    .navbar-default.navbar-shrink .nav li a:hover,
+    .navbar-default.navbar-shrink .nav li a:focus {
+        color: #F05F40;
+    }
+}
+/* ===== FIM: NAVBAR DESKTOP ===== */
+
+/* =============================================================================
+   7. CARROSSEL
+   ========================================================================== */
+
+/* ===== INÍCIO: CARROSSEL ===== */
+.carousel-inner img {
+    border: 9px solid var(--cor-branco);
+    width: 100%;
+}
+
+.carousel-control {
+    background-image: none;
+}
+
+.carousel-indicators {
+    bottom: 15px;
+}
+
+.carousel-indicators li {
+    border: 2px solid var(--cor-branco);
+}
+
+.carousel-indicators .active {
+    background-color: var(--cor-primaria);
+}
+/* ===== FIM: CARROSSEL ===== */
+
+/* =============================================================================
+   8. BOTÕES E FORMULÁRIOS
+   ========================================================================== */
+
+/* ===== INÍCIO: BOTÕES ===== */
+.btn {
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: var(--peso-normal);
+    font-size: 13px;
+    transition: var(--transicao-padrao);
+}
+
+.btn-skin {
+    padding: 7px 25px;
+    line-height: 26px;
+    font-weight: bold;
+    background-color: var(--cor-primaria);
+    color: var(--cor-branco);
+    border: 2px solid var(--cor-primaria);
+}
+
+.btn-skin:hover,
+.btn-skin:focus {
+    background-color: var(--cor-primaria-escura);
+    border-color: var(--cor-primaria-escura);
+    color: var(--cor-branco);
+}
+/* ===== FIM: BOTÕES ===== */
+
+/* ===== INÍCIO: FORMULÁRIOS ===== */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+.form-control {
+    border: 2px solid #444444;
+    border-radius: 0;
+    box-shadow: none;
+    color: #999999;
+    font-size: 20px;
+    height: 40px;
+    padding: 7px 10px;
+    width: 100%;
+    background-color: transparent;
+    transition: border-color 0.2s ease-in-out;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+.form-control:focus {
+    border-color: var(--cor-primaria);
+    outline: none;
+    box-shadow: 0 0 5px rgba(129, 105, 67, 0.3);
+}
+
+textarea {
+    height: auto;
+    min-height: 100px;
+    resize: vertical;
+}
+
+#contact_form {
+    padding: 25px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+/* ===== FIM: FORMULÁRIOS ===== */
+
+/* =============================================================================
+   9. ITENS DO MENU (CARDS COM HOVER)
+   ========================================================================== */
+
+/* ===== INÍCIO: ITEM CONTAINER ===== */
+.item-container {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid var(--cor-borda);
+    padding: 7px;
+    background-color: var(--cor-branco);
+    margin-bottom: 20px;
+    transition: var(--transicao-padrao);
+}
+
+.item-container:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.item-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Overlay do Item */
+.item-container .item-caption {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(129, 105, 67, 0);
+    padding: 35px 30px;
+    transition: background 0.6s ease;
+}
+
+.item-container:hover .item-caption {
+    background: rgba(129, 105, 67, 0.8);
+}
+
+/* Bordas Animadas no Hover */
+.item-caption::after,
+.item-caption::before {
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    bottom: 1em;
+    content: '';
+    left: 1em;
+    opacity: 0;
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    transform: scale(1.5);
+    transition: opacity 0.6s 0.2s, transform 0.6s 0.2s;
+}
+
+.item-caption::before {
+    border-bottom: none;
+    border-top: none;
+    left: 2em;
+    right: 2em;
+}
+
+.item-caption::after {
+    border-left: none;
+    border-right: none;
+    bottom: 2em;
+    top: 2em;
+}
+
+.item-container:hover .item-caption::after,
+.item-container:hover .item-caption::before {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Centralização do Conteúdo */
+.item-caption-inner {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+.item-caption-inner1 {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* Textos do Item */
+.item-container .item-caption h3,
+.item-container .item-caption span,
+.item-container .item-caption .price {
+    color: var(--cor-branco);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s;
+}
+
+.item-container:hover .item-caption h3,
+.item-container:hover .item-caption span,
+.item-container:hover .item-caption .price {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.item-container .item-caption h3 {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.item-container .item-caption span,
+.item-container .item-caption .price {
+    font-size: 22px;
+    display: block;
+}
+/* ===== FIM: ITEM CONTAINER ===== */
+
+/* =============================================================================
+   10. TIMELINE (LINHA DO TEMPO)
+   ========================================================================== */
+
+/* ===== INÍCIO: TIMELINE ===== */
+.timeline {
+    position: relative;
+    padding: 0;
+    list-style: none;
+}
+
+/* Linha Vertical Central */
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 40px;
+    width: 2px;
+    background: var(--cor-timeline);
+}
+
+.timeline > li {
+    position: relative;
+    margin-bottom: 50px;
+    min-height: 50px;
+}
+
+.timeline > li::after,
+.timeline > li::before {
+    content: " ";
+    display: table;
+}
+
+.timeline > li::after {
+    clear: both;
+}
+
+/* Painel de Conteúdo */
+.timeline > li .timeline-panel {
+    float: right;
+    position: relative;
+    width: 100%;
+    padding: 0 20px 0 100px;
+    text-align: left;
+}
+
+/* Imagem Circular */
+.timeline > li .timeline-image {
+    z-index: 100;
+    position: absolute;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    border: 6px solid var(--cor-timeline);
+    border-radius: 50%;
+    text-align: center;
+    color: var(--cor-branco);
+    background: var(--cor-timeline);
+    overflow: hidden;
+}
+
+.timeline > li .timeline-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.timeline > li .timeline-image h6 {
+    margin: 0;
+    padding: 15px 10px;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+/* Títulos */
+.timeline .timeline-heading h3,
+.timeline .timeline-heading h4 {
+    margin-top: 0;
+    color: inherit;
+}
+
+.timeline .timeline-heading .subheading-year {
+    color: var(--cor-texto-claro);
+    font-size: 14px;
+}
+
+.timeline .timeline-body {
+    margin-top: 10px;
+}
+
+.timeline .timeline-body p {
+    margin-bottom: 0;
+}
+/* ===== FIM: TIMELINE ===== */
+
+/* ===== INÍCIO: TIMELINE RESPONSIVA ===== */
+@media (min-width: 768px) {
+    .timeline::before {
+        left: 50%;
+    }
+   
+    .timeline > li {
+        margin-bottom: 100px;
+        min-height: 100px;
+    }
+   
+    .timeline > li .timeline-panel {
+        float: left;
+        width: 41%;
+        padding: 0 20px 20px 30px;
+        text-align: right;
+    }
+   
+    .timeline > li .timeline-image {
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        margin-left: -50px;
+    }
+   
+    .timeline > li.timeline-inverted > .timeline-panel {
+        float: right;
+        text-align: left;
+        padding: 0 30px 20px 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    .timeline > li .timeline-image {
+        width: 150px;
+        height: 150px;
+        margin-left: -75px;
+    }
+   
+    .timeline > li .timeline-image h6 {
+        font-size: 16px;
+        padding: 40px 10px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .timeline > li .timeline-image {
+        width: 170px;
+        height: 170px;
+        margin-left: -85px;
+    }
+}
+
+/* Cores Alternadas da Timeline */
+.timeline > li.blue .timeline-image {
+    background: #3498db;
+    border-color: #3498db;
+}
+
+.timeline > li.red .timeline-image {
+    background: #e74c3c;
+    border-color: #e74c3c;
+}
+
+.timeline > li.green .timeline-image {
+    background: #2ecc71;
+    border-color: #2ecc71;
+}
+
+.timeline > li.yellow .timeline-image {
+    background: #f39c12;
+    border-color: #f39c12;
+}
+/* ===== FIM: TIMELINE RESPONSIVA ===== */
+
+/* =============================================================================
+   11. SEÇÕES DE CONTEÚDO
+   ========================================================================== */
+
+/* ===== INÍCIO: BOX CONTENT ===== */
+.box-content {
+    padding: var(--espacamento-padrao) 0;
+}
+
+.heading {
+    margin-bottom: var(--espacamento-medio);
+    text-align: center;
+}
+
+.heading h1,
+.heading h2 {
+    color: #5D5454;
+    text-transform: uppercase;
+    font-size: 55px;
+    margin-bottom: 25px;
+}
+
+.heading .intro {
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--cor-texto);
+}
+
+/* Variações de Background */
+.box-content.box-1 {
+    text-align: center;
+}
+
+.box-content.box-style-1 {
+    background-color: var(--cor-branco);
+}
+
+.box-content.box-style-2 {
+    background: url("../img/bg01.png") no-repeat center center;
+    background-size: cover;
+}
+
+.box-content.box-style-3 {
+    background: url("../img/bg02.png") no-repeat center center fixed;
+    background-size: cover;
+    color: #0f0f0f;
+}
+
+.box-content.box-style-3 .hr {
+    color: #1d1b1b;
+}
+/* ===== FIM: BOX CONTENT ===== */
+
+/* ===== INÍCIO: SEÇÃO SOBRE/HISTÓRIA ===== */
+.section-heading {
+    font-size: 48px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.primary {
+    border-color: var(--cor-primaria) !important;
+}
+
+hr.primary {
+    border: 2px solid var(--cor-primaria);
+    width: 100px;
+    margin: 20px auto 40px;
+}
+/* ===== FIM: SEÇÃO SOBRE/HISTÓRIA ===== */
+
+/* =============================================================================
+   12. BLOG E COMENTÁRIOS
+   ========================================================================== */
+
+/* ===== INÍCIO: BLOG POST ===== */
+.blog-post {
+    margin-bottom: 60px;
+}
+
+.blog-post h2 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.blog-post h2 a {
+    color: var(--cor-texto);
+    transition: var(--transicao-padrao);
+}
+
+.blog-post h2 a:hover {
+    color: var(--cor-primaria);
+}
+
+.post-meta {
+    color: var(--cor-texto-claro);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.post-meta strong {
+    color: var(--cor-texto);
+}
+
+.post-meta a {
+    color: var(--cor-primaria);
+}
+
+.blog-post img {
+    margin: 20px 0;
+    width: 100%;
+}
+
+.blog-post h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--cor-primaria);
+}
+
+.blog-post ul,
+.blog-post ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.blog-post li {
+    margin-bottom: 10px;
+}
+/* ===== FIM: BLOG POST ===== */
+
+/* ===== INÍCIO: COMENTÁRIOS ===== */
+.comments-section,
+.comment-form {
+    margin-top: 40px;
+}
+
+.comments-section h3,
+.comment-form h4 {
+    margin-bottom: 20px;
+    color: var(--cor-primaria);
+}
+
+.comment {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.comment strong {
+    color: var(--cor-primaria);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.comment p {
+    margin: 0;
+    color: var(--cor-texto-claro);
+}
+/* ===== FIM: COMENTÁRIOS ===== */
+
+/* =============================================================================
+   13. SIDEBAR E WIDGETS
+   ========================================================================== */
+
+/* ===== INÍCIO: SIDEBAR ===== */
+.sidebar {
+    padding-left: 20px;
+}
+
+.sidebar-widget {
+    margin-bottom: 30px;
+}
+
+.sidebar-widget h4 {
+    border-bottom: 2px solid var(--cor-borda);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: var(--cor-primaria);
+}
+
+.sidebar-widget ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-widget ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.sidebar-widget ul li:last-child {
+    border-bottom: none;
+}
+
+.sidebar-widget ul li a {
+    color: var(--cor-texto);
+    transition: var(--transicao-padrao);
+}
+
+.sidebar-widget ul li a:hover {
+    color: var(--cor-primaria);
+    padding-left: 5px;
+}
+/* ===== FIM: SIDEBAR ===== */
+
+/* ===== INÍCIO: WIDGETS ===== */
+.widget {
+    margin-bottom: 30px;
+}
+
+.widget .heading {
+    border-bottom: 1px solid #333333;
+    margin: 20px 0;
+}
+
+.widget .heading h4 {
+    font-size: 25px;
+}
+
+.widget ul li {
+    list-style: none;
+}
+
+.widget.wid-posts img {
+    float: left;
+    margin: 15px 10px 15px 0;
+    width: 100px;
+    height: auto;
+}
+/* ===== FIM: WIDGETS ===== */
+
+/* =============================================================================
+   14. REDES SOCIAIS
+   ========================================================================== */
+
+/* ===== INÍCIO: BOTÕES SOCIAIS ===== */
+.social-buttons {
+    margin: 0;
+    padding: 0;
+}
+
+.social-buttons li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.social-buttons li a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--cor-branco);
+    transition: var(--transicao-padrao);
+}
+
+.social-buttons li a:hover {
+    background-color: var(--cor-primaria);
+    transform: scale(1.1);
+}
+
+.social-buttons li a i {
+    font-size: 18px;
+}
+/* ===== FIM: BOTÕES SOCIAIS ===== */
+
+/* =============================================================================
+   15. RESPONSIVIDADE
+   ========================================================================== */
+
+/* ===== INÍCIO: MEDIA QUERIES ===== */
+
+/* Tablets e dispositivos médios */
+@media (max-width: 991px) {
+    .heading h2 {
+        font-size: 45px;
+    }
+   
+    .heading .intro {
+        font-size: 24px;
+    }
+   
+    .item-container .item-caption h3 {
+        font-size: 28px;
+    }
+   
+    .item-container .item-caption span,
+    .item-container .item-caption .price {
+        font-size: 18px;
+    }
+}
+
+/* Dispositivos móveis */
+@media (max-width: 767px) {
+    /* Header */
+    header {
+        margin-top: 90px;
+    }
+   
+    /* Esconde linhas decorativas em telas pequenas */
+    .hr::before,
+    .hr::after {
+        display: none;
+    }
+   
+    /* Tipografia */
+    .heading h1,
+    .heading h2 {
+        font-size: 36px;
+    }
+   
+    .heading .intro {
+        font-size: 20px;
+    }
+   
+    /* Espaçamentos */
+    .box-content {
+        padding: 40px 0;
+    }
+   
+    article {
+        padding: 40px 0;
+    }
+   
+    /* Sidebar */
+    .sidebar {
+        padding-left: 0;
+        margin-top: 40px;
+    }
+   
+    /* Cards de Menu */
+    .item-container {
+        margin-bottom: 15px;
+    }
+   
+    .item-container .item-caption h3 {
+        font-size: 24px;
+    }
+   
+    .item-container .item-caption span,
+    .item-container .item-caption .price {
+        font-size: 16px;
+    }
+   
+    /* Formulários */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    .form-control {
+        font-size: 16px;
+    }
+   
+    /* Footer */
+    footer .wrap-footer {
+        padding: 30px 0 15px;
+    }
+}
+
+/* Dispositivos móveis pequenos */
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+   
+    h1 { font-size: 28px; }
+    h2 { font-size: 26px; }
+    h3 { font-size: 24px; }
+   
+    .navbar-default .nav li a {
+        font-size: 16px;
+    }
+   
+    .btn-skin {
+        padding: 6px 20px;
+        font-size: 12px;
+    }
+}
+/* ===== FIM: MEDIA QUERIES ===== */
+
+/* =============================================================================
+   16. GOOGLE MAPS
+   ========================================================================== */
+
+/* ===== INÍCIO: MAPS ===== */
+.maps {
+    position: relative;
+    overflow: hidden;
+}
+
+.maps iframe {
+    pointer-events: none;
+    border: 0;
+}
+
+.maps.active iframe {
+    pointer-events: auto;
+}
+
+.embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* ===== FIM: MAPS ===== */
+
+/* =============================================================================
+   17. UTILITÁRIOS ADICIONAIS
+   ========================================================================== */
+
+/* ===== INÍCIO: BOX ITEM (PÁGINA CONTATO) ===== */
+.box-item {
+    margin-bottom: 30px;
+}
+
+.box-item h2 {
+    color: var(--cor-primaria);
+    margin-bottom: 20px;
+}
+
+.box-item address {
+    line-height: 1.8;
+    color: var(--cor-texto-claro);
+}
+
+.box-item address strong {
+    color: var(--cor-texto);
+    display: block;
+    margin-bottom: 5px;
+}
+/* ===== FIM: BOX ITEM ===== */
+
+/* ===== INÍCIO: OWL CAROUSEL (DEPOIMENTOS) ===== */
+#owl-brand {
+    margin-top: 30px;
+}
+
+#owl-brand .item {
+    padding: 20px;
+}
+
+#owl-brand figure {
+    margin: 0;
+}
+
+#owl-brand .img-circle {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    border: 5px solid var(--cor-branco);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#owl-brand blockquote {
+    border: none;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.6;
+    padding: 20px 0;
+    color: var(--cor-texto);
+}
+
+#owl-brand figcaption {
+    font-weight: bold;
+    color: var(--cor-primaria);
+    margin-top: 10px;
+}
+/* ===== FIM: OWL CAROUSEL ===== */
+
+/* =============================================================================
+   18. ANIMAÇÕES E TRANSIÇÕES
+   ========================================================================== */
+
+/* ===== INÍCIO: ANIMAÇÕES ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Aplicação de animações */
+.animate-on-scroll {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.animate-left {
+    animation: slideInFromLeft 0.8s ease forwards;
+}
+
+.animate-right {
+    animation: slideInFromRight 0.8s ease forwards;
+}
+/* ===== FIM: ANIMAÇÕES ===== */
+
+/* =============================================================================
+   19. ESTADOS E INTERAÇÕES
+   ========================================================================== */
+
+/* ===== INÍCIO: ESTADOS DE FOCO E HOVER ===== */
+/* Melhoria de acessibilidade para navegação por teclado */
+*:focus {
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 2px;
+}
+
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--cor-primaria);
+    outline-offset: 2px;
+}
+
+/* Remove outline padrão apenas para mouse */
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+/* ===== FIM: ESTADOS DE FOCO E HOVER ===== */
+
+/* =============================================================================
+   20. IMPRESSÃO
+   ========================================================================== */
+
+/* ===== INÍCIO: ESTILOS DE IMPRESSÃO ===== */
+@media print {
+    /* Oculta elementos desnecessários na impressão */
+    .navbar,
+    .carousel,
+    footer,
+    .btn,
+    .social-buttons {
+        display: none !important;
+    }
+   
+    /* Ajusta cores para impressão */
+    body {
+        background: white;
+        color: black;
+    }
+   
+    a {
+        text-decoration: underline;
+        color: black;
+    }
+   
+    /* Evita quebras de página indesejadas */
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+    }
+   
+    img {
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
+}
+/* ===== FIM: ESTILOS DE IMPRESSÃO ===== */
+
+/* =============================================================================
+   FIM DO ARQUIVO style.css
+   ========================================================================== */
